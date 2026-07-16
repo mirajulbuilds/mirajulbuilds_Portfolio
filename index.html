@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mirajul Islam — Digital Marketer & Web Developer · Riyadh</title>
+<meta name="description" content="Mirajul Islam — self-taught digital marketer and web developer in Riyadh. From the shop counter to search rankings: SEO, Google Ads, and fast websites that bring real customers.">
+<meta property="og:title" content="Mirajul Islam — Digital Marketer & Web Developer">
+<meta property="og:description" content="From the shop counter to search rankings. SEO, paid ads, and web development that move real numbers. Riyadh.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mirajulbuilds.com">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230B0F14'/%3E%3Ctext x='50' y='72' font-family='Arial,sans-serif' font-size='62' font-weight='700' text-anchor='middle' fill='%234DA3FF'%3EM%3C/text%3E%3Ccircle cx='78' cy='30' r='7' fill='%23F2B441'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Noto+Sans+Arabic:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Mirajul Islam","jobTitle":"Digital Marketer & Web Developer","url":"https://mirajulbuilds.com","address":{"@type":"PostalAddress","addressLocality":"Riyadh","addressCountry":"SA"},"nationality":"Bangladesh","knowsLanguage":["en","bn","ar"],"knowsAbout":["SEO","Google Ads","Web development","Retail operations","Home services market","Plumbing and electrical trade","E-commerce"],"sameAs":["https://www.linkedin.com/in/mirajulbuilds/","https://x.com/MirajulBuilds","https://www.reddit.com/u/MirajulBuilds"]}
+</script>
+<style>
+  :root{
+    --bg:#0B0F14; --bg2:#0D121A; --surface:#111823; --surface2:#16202F;
+    --line:rgba(141,166,190,.13); --line2:rgba(141,166,190,.26);
+    --grid:rgba(77,163,255,.055);
+    --text:#E7EDF3; --muted:#8FA6BE; --faint:#5A6E86;
+    --blue:#4DA3FF; --blue-dim:rgba(77,163,255,.13); --amber:#F2B441;
+    --mono:'JetBrains Mono',monospace;
+    --disp:'Space Grotesk','Noto Sans Arabic','Noto Sans Bengali',sans-serif;
+    --body:'Inter','Noto Sans Arabic','Noto Sans Bengali',sans-serif;
+    --maxw:1180px; --nav-h:72px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  ::selection{background:var(--blue);color:#04122B}
+  html{scrollbar-width:thin;scrollbar-color:var(--surface2) var(--bg)}
+  body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.08;letter-spacing:-.025em}
+  html[lang=ar] h1,html[lang=ar] h2,html[lang=ar] h3{letter-spacing:0;line-height:1.25}
+  html[lang=bn] h1,html[lang=bn] h2,html[lang=bn] h3{letter-spacing:0;line-height:1.25}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .mono{font-family:var(--mono)}
+  .blue{color:var(--blue)}
+  .amber{color:var(--amber)}
+
+  /* preloader */
+  #loader{position:fixed;inset:0;z-index:200;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px}
+  #loader .l-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,4vw,40px);letter-spacing:-.02em;overflow:hidden}
+  #loader .l-name span{display:inline-block;transform:translateY(110%)}
+  #loader .l-bar{width:210px;height:1px;background:var(--line);position:relative;overflow:hidden}
+  #loader .l-bar i{position:absolute;inset:0;background:var(--blue);transform:scaleX(0);transform-origin:left}
+  #loader .l-pct{font-family:var(--mono);font-size:12px;color:var(--faint);letter-spacing:.12em}
+
+  /* cursor */
+  #cursor{position:fixed;top:0;left:0;width:10px;height:10px;border-radius:50%;background:var(--blue);pointer-events:none;z-index:150;transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s,opacity .25s;opacity:0;mix-blend-mode:screen}
+  #cursor.on{opacity:1}
+  #cursor.grow{width:56px;height:56px;background:rgba(77,163,255,.18);border:1px solid var(--blue)}
+  @media(hover:none){#cursor{display:none}}
+
+  /* blueprint chrome */
+  .bp-grid{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:44px 44px}
+  .cross{position:absolute;font-family:var(--mono);color:var(--blue);opacity:.35;font-size:15px;user-select:none}
+  .spec{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+  html[lang=ar] .spec,html[lang=bn] .spec{letter-spacing:.02em;text-transform:none;font-family:var(--body);font-size:12.5px}
+  .spec b{color:var(--blue);font-weight:500}
+  .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:14px;flex-wrap:wrap}
+  .sec-head .num{font-family:var(--mono);font-size:13px;color:var(--blue)}
+  .sec-head h2{font-size:clamp(30px,4.6vw,46px)}
+  .sec-head .spec{margin-inline-start:auto}
+  .sec-line{height:1px;background:var(--line);margin:26px 0 46px;position:relative}
+  .sec-line::after{content:"";position:absolute;inset-inline-start:0;top:0;height:1px;width:72px;background:var(--blue)}
+  section{position:relative;z-index:1;padding:106px 0}
+
+  /* nav */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-h);border-bottom:1px solid var(--line);background:rgba(11,15,20,.72);backdrop-filter:blur(14px);transition:transform .4s}
+  nav.hide{transform:translateY(-100%)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:var(--nav-h);gap:14px}
+  .logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;letter-spacing:-.02em;white-space:nowrap}
+  .logo em{font-style:normal;color:var(--blue)}
+  .logo .dot{color:var(--amber)}
+  .nav-right{display:flex;align-items:center;gap:22px}
+  .nav-links{display:flex;align-items:center;gap:28px}
+  .nav-links a{font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);position:relative;transition:color .25s}
+  html[lang=ar] .nav-links a,html[lang=bn] .nav-links a{font-family:var(--body);letter-spacing:0;text-transform:none;font-size:14px}
+  .nav-links a::after{content:"";position:absolute;inset-inline-start:0;bottom:-5px;width:100%;height:1px;background:var(--blue);transform:scaleX(0);transform-origin:right;transition:transform .3s}
+  .nav-links a:hover{color:var(--text)}
+  .nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+  .langs-sw{display:flex;border:1px solid var(--line2);border-radius:8px;overflow:hidden}
+  .langs-sw button{font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;background:none;border:none;color:var(--muted);padding:8px 0;width:40px;text-align:center;cursor:pointer;transition:all .2s}
+  .langs-sw button+button{border-inline-start:1px solid var(--line2)}
+  .langs-sw button.on{background:var(--blue);color:#04122B}
+  .langs-sw button:not(.on):hover{color:var(--text);background:var(--surface2)}
+
+  .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:13px;letter-spacing:.06em;font-weight:500;padding:13px 24px;border-radius:8px;transition:background .25s,border-color .25s,box-shadow .25s;cursor:pointer;border:1px solid transparent}
+  html[lang=ar] .btn,html[lang=bn] .btn{font-family:var(--body);letter-spacing:0;font-size:14.5px}
+  .btn-fill{background:var(--blue);color:#04122B}
+  .btn-fill:hover{background:#6cb4ff;box-shadow:0 0 32px rgba(77,163,255,.35)}
+  .btn-line{border-color:var(--line2);color:var(--text)}
+  .btn-line:hover{border-color:var(--blue);background:var(--blue-dim)}
+  .btn svg{width:15px;height:15px;flex-shrink:0}
+  [dir=rtl] .btn svg,[dir=rtl] .arr svg,[dir=rtl] .p-link svg{transform:scaleX(-1)}
+
+  /* hero */
+  .hero{min-height:100svh;display:flex;align-items:center;padding:calc(var(--nav-h) + 40px) 0 60px;position:relative;z-index:1;overflow:hidden}
+  .hero-glow{position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle,rgba(77,163,255,.14),transparent 62%);top:-220px;inset-inline-end:-180px;pointer-events:none}
+  .hero-in{display:grid;grid-template-columns:1.35fr .85fr;gap:56px;align-items:center;width:100%}
+  .hero .spec-row{display:flex;align-items:center;gap:14px;margin-bottom:30px}
+  .hero .spec-row .pulse{width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 0 rgba(77,163,255,.5);animation:pulse 2.2s infinite;flex-shrink:0}
+  @keyframes pulse{70%{box-shadow:0 0 0 11px rgba(77,163,255,0)}100%{box-shadow:0 0 0 0 rgba(77,163,255,0)}}
+  h1{font-size:clamp(42px,7.2vw,84px);font-weight:700}
+  h1 .line{display:block;overflow:hidden;padding-bottom:.08em}
+  h1 .line>span{display:inline-block;transform:translateY(115%)}
+  .hero .sub{color:var(--muted);font-size:clamp(16px,1.6vw,18.5px);max-width:540px;margin:28px 0 38px}
+  .hero .sub b{color:var(--text);font-weight:500}
+  .cta-row{display:flex;gap:16px;flex-wrap:wrap}
+  .hero-meta{display:flex;gap:34px;margin-top:56px;flex-wrap:wrap}
+  .hero-meta .hm{border-inline-start:1px solid var(--line2);padding-inline-start:16px}
+  .hero-meta .hm b{font-family:var(--disp);font-size:24px;font-weight:600;display:block;color:var(--text)}
+  .hero-meta .hm span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  html[lang=ar] .hero-meta .hm span,html[lang=bn] .hero-meta .hm span{font-family:var(--body);letter-spacing:0;text-transform:none;font-size:12.5px}
+
+  .hero-card{position:relative}
+  .frame{position:relative;aspect-ratio:4/5;min-height:400px;border:1px solid var(--line2);border-radius:14px;background:linear-gradient(165deg,var(--surface2),var(--surface));overflow:hidden}
+  .frame .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:var(--faint)}
+  .frame .ph svg{width:52px;height:52px;stroke:var(--faint)}
+  .frame .ph small{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+  .frame::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 28%,rgba(77,163,255,.16),transparent 58%)}
+  .frame .corner{position:absolute;width:22px;height:22px;border-color:var(--blue);border-style:solid;opacity:.85}
+  .frame .c1{top:12px;left:12px;border-width:2px 0 0 2px}
+  .frame .c2{top:12px;right:12px;border-width:2px 2px 0 0}
+  .frame .c3{bottom:12px;left:12px;border-width:0 0 2px 2px}
+  .frame .c4{bottom:12px;right:12px;border-width:0 2px 2px 0}
+  .hero-card .float-tag{position:absolute;font-family:var(--mono);font-size:11.5px;background:var(--surface2);border:1px solid var(--line2);border-radius:8px;padding:9px 14px;color:var(--muted);box-shadow:0 12px 34px rgba(0,0,0,.45)}
+  .hero-card .ft1{top:26px;inset-inline-start:-46px}
+  .hero-card .ft2{bottom:78px;inset-inline-end:-40px}
+  .hero-card .ft1 b{color:var(--amber);font-weight:500}
+  .hero-card .ft2 b{color:var(--blue);font-weight:500}
+  .scroll-cue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--faint)}
+  .scroll-cue .wheel{width:1px;height:44px;background:var(--line2);position:relative;overflow:hidden}
+  .scroll-cue .wheel::after{content:"";position:absolute;top:-14px;left:0;width:1px;height:14px;background:var(--blue);animation:drop 1.8s infinite}
+  @keyframes drop{to{top:48px}}
+
+  /* marquee */
+  .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0;overflow:hidden;position:relative;z-index:1;background:var(--bg2)}
+  .mq-track{display:flex;gap:56px;width:max-content;will-change:transform}
+  .mq-track span{font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);display:flex;align-items:center;gap:56px;white-space:nowrap}
+  .mq-track span i{color:var(--blue);font-style:normal}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:start}
+  .about-grid .big{font-family:var(--disp);font-size:clamp(21px,2.6vw,28px);font-weight:500;line-height:1.4;letter-spacing:-.01em}
+  html[lang=ar] .about-grid .big,html[lang=bn] .about-grid .big{letter-spacing:0;line-height:1.55}
+  .about-grid .big em{font-style:normal;color:var(--blue)}
+  .about-grid p.body{color:var(--muted);margin-top:22px}
+  .about-facts{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;background:var(--surface);overflow:hidden}
+  .fact{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 24px;border-bottom:1px solid var(--line);transition:background .25s}
+  .fact:last-child{border-bottom:none}
+  .fact:hover{background:var(--surface2)}
+  .fact .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);flex-shrink:0}
+  html[lang=ar] .fact .k,html[lang=bn] .fact .k{font-family:var(--body);letter-spacing:0;text-transform:none;font-size:13px}
+  .fact .v{font-size:14.5px;color:var(--text);font-weight:500;text-align:end}
+
+  /* operator's edge */
+  .edge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .edge{border:1px solid var(--line);border-radius:16px;background:var(--surface);padding:32px 28px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+  .edge:hover{border-color:rgba(242,180,65,.4);transform:translateY(-5px)}
+  .edge .e-num{font-family:var(--mono);font-size:12px;color:var(--amber);display:block;margin-bottom:18px}
+  .edge h3{font-size:20px;margin-bottom:12px}
+  .edge p{color:var(--muted);font-size:15px}
+  .edge-quote{margin-top:44px;border-inline-start:2px solid var(--amber);padding:8px 26px;font-family:var(--disp);font-size:clamp(19px,2.4vw,25px);font-weight:500;line-height:1.5;letter-spacing:-.01em;color:var(--text);max-width:820px}
+  html[lang=ar] .edge-quote,html[lang=bn] .edge-quote{letter-spacing:0}
+  .edge-quote em{font-style:normal;color:var(--amber)}
+
+  /* services */
+  .svc-list{display:flex;flex-direction:column}
+  .svc{display:grid;grid-template-columns:64px 1.1fr 1.5fr auto;gap:26px;align-items:center;padding:34px 10px;border-bottom:1px solid var(--line);transition:background .3s,padding .3s}
+  .svc:first-child{border-top:1px solid var(--line)}
+  .svc:hover{background:var(--surface);padding-inline:24px}
+  .svc .idx{font-family:var(--mono);font-size:13px;color:var(--faint)}
+  .svc h3{font-size:clamp(20px,2.4vw,26px);transition:color .3s}
+  .svc:hover h3{color:var(--blue)}
+  .svc p{color:var(--muted);font-size:15px;max-width:460px}
+  .svc .arr{width:42px;height:42px;border:1px solid var(--line2);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .3s;flex-shrink:0}
+  .svc .arr svg{width:16px;height:16px;stroke:var(--muted);transition:all .3s}
+  .svc:hover .arr{background:var(--blue);border-color:var(--blue);transform:rotate(-45deg)}
+  [dir=rtl] .svc:hover .arr{transform:rotate(45deg)}
+  .svc:hover .arr svg{stroke:#04122B}
+  .svc .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .svc .tags span{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);border:1px solid var(--line);padding:4px 10px;border-radius:5px}
+
+  /* work */
+  .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .proj{position:relative;border:1px solid var(--line);border-radius:16px;background:var(--surface);padding:34px 32px;overflow:hidden;transition:border-color .3s,transform .3s;display:flex;flex-direction:column;min-height:320px}
+  .proj:hover{border-color:rgba(77,163,255,.45);transform:translateY(-5px)}
+  .proj::before{content:"";position:absolute;inset:0;background:radial-gradient(560px circle at var(--mx,50%) var(--my,50%),rgba(77,163,255,.08),transparent 45%);opacity:0;transition:opacity .3s;pointer-events:none}
+  .proj:hover::before{opacity:1}
+  .proj.wide{grid-column:span 2;min-height:360px;background:linear-gradient(160deg,var(--surface2),var(--surface))}
+  .proj .p-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+  .proj .p-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);background:var(--blue-dim);border:1px solid rgba(77,163,255,.25);padding:6px 12px;border-radius:6px}
+  html[lang=ar] .p-tag,html[lang=bn] .p-tag{font-family:var(--body);letter-spacing:0;text-transform:none;font-size:12px}
+  .proj .p-tag.gold{color:var(--amber);background:rgba(242,180,65,.1);border-color:rgba(242,180,65,.3)}
+  .proj .p-num{font-family:var(--mono);font-size:12px;color:var(--faint)}
+  .proj h3{font-size:clamp(22px,3vw,32px);margin:22px 0 12px}
+  .proj .p-desc{color:var(--muted);font-size:15.5px;max-width:600px}
+  .proj .p-stats{display:flex;gap:30px;margin-top:auto;padding-top:30px;flex-wrap:wrap}
+  .proj .ps b{font-family:var(--disp);font-size:22px;font-weight:600;display:block}
+  .proj .ps span{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  html[lang=ar] .ps span,html[lang=bn] .ps span{font-family:var(--body);letter-spacing:0;text-transform:none;font-size:12px}
+  .proj .p-link{margin-top:26px;display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;color:var(--blue)}
+  .proj .p-link svg{width:14px;height:14px;transition:transform .25s}
+  .proj .p-link:hover svg{transform:translate(3px,-3px)}
+
+  /* process */
+  .proc-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--surface)}
+  .step{padding:34px 28px;border-inline-end:1px solid var(--line);transition:background .3s}
+  .step:last-child{border-inline-end:none}
+  .step:hover{background:var(--surface2)}
+  .step .s-num{font-family:var(--mono);font-size:12px;color:var(--blue);margin-bottom:20px;display:block}
+  .step h3{font-size:19px;margin-bottom:10px}
+  .step p{color:var(--muted);font-size:14px}
+
+  /* skills */
+  .skill-cols{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .skill-box{border:1px solid var(--line);border-radius:14px;background:var(--surface);padding:28px}
+  .skill-box .sb-head{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+  html[lang=ar] .sb-head,html[lang=bn] .sb-head{font-family:var(--body);letter-spacing:0;text-transform:none;font-size:13.5px}
+  .skill-box .sb-head::after{content:"";flex:1;height:1px;background:var(--line)}
+  .skill-box .sb-head.gold{color:var(--amber)}
+  .skill-box ul{list-style:none}
+  .skill-box li{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:14.5px;color:var(--text)}
+  .skill-box li:last-child{border-bottom:none}
+  .skill-box li span{font-family:var(--mono);font-size:11px;color:var(--faint);flex-shrink:0}
+
+  /* contact */
+  .contact{background:var(--bg2);border-top:1px solid var(--line)}
+  .contact-in{text-align:center;max-width:780px;margin:0 auto}
+  .contact h2.giant{font-size:clamp(38px,7vw,78px);font-weight:700;letter-spacing:-.03em}
+  html[lang=ar] .contact h2.giant,html[lang=bn] .contact h2.giant{letter-spacing:0}
+  .contact h2.giant em{font-style:normal;color:var(--blue)}
+  .contact h2.giant .line{display:block;overflow:hidden;padding-bottom:.1em}
+  .contact h2.giant .line>span{display:inline-block}
+  .contact p.lead{color:var(--muted);font-size:17px;margin:24px auto 40px;max-width:500px}
+  .contact .langs{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-top:34px}
+  .socials{display:flex;justify-content:center;gap:14px;margin-top:38px;flex-wrap:wrap}
+  .socials a{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;border:1px solid var(--line2);border-radius:100px;padding:11px 22px;color:var(--muted);transition:all .25s}
+  .socials a:hover{color:var(--text);border-color:var(--blue);background:var(--blue-dim);transform:translateY(-2px)}
+
+  footer{border-top:1px solid var(--line);padding:34px 0;position:relative;z-index:1}
+  .foot-in{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+  .foot-in .spec{font-size:11px}
+
+  /* reveal base */
+  .rv{opacity:0;transform:translateY(34px)}
+  .rv-r{opacity:0;transform:translateX(34px)}
+  [dir=rtl] .rv-r{transform:translateX(-34px)}
+
+  @media(max-width:1200px) and (min-width:921px){
+    .hero-in{grid-template-columns:1.2fr .8fr;gap:38px}
+    .hero-card .ft1{inset-inline-start:6px}
+    .hero-card .ft2{inset-inline-end:6px}
+    .frame{min-height:360px}
+  }
+  @media(max-width:920px){
+    section{padding:84px 0}
+    .hero{padding-top:calc(var(--nav-h) + 28px)}
+    .hero-in{grid-template-columns:1fr;gap:44px}
+    .hero-card{max-width:330px;margin:0 auto}
+    .hero-card .ft1{inset-inline-start:8px}
+    .hero-card .ft2{inset-inline-end:8px}
+    .frame{min-height:380px}
+    .hero-meta{gap:24px;margin-top:44px}
+    .about-grid{grid-template-columns:1fr;gap:38px}
+    .edge-grid{grid-template-columns:1fr;gap:16px}
+    .svc{grid-template-columns:44px 1fr auto;grid-template-rows:auto auto;row-gap:12px}
+    .svc p{grid-column:2/4}
+    .work-grid{grid-template-columns:1fr}
+    .proj.wide{grid-column:span 1}
+    .proj{min-height:auto}
+    .proc-grid{grid-template-columns:1fr 1fr}
+    .step{border-bottom:1px solid var(--line)}
+    .skill-cols{grid-template-columns:1fr}
+    .nav-links{display:none}
+    .scroll-cue{display:none}
+  }
+  @media(max-width:560px){
+    .proc-grid{grid-template-columns:1fr}
+    .step{border-inline-end:none}
+    .langs-sw button{padding:8px 10px}
+    .nav-cta{display:none}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+    .rv,.rv-r,h1 .line>span,#loader .l-name span{opacity:1!important;transform:none!important}
+  }
+  :focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<div id="loader" aria-hidden="true">
+  <div class="l-name"><span>mirajul<em style="font-style:normal;color:var(--blue)">builds</em><i style="font-style:normal;color:var(--amber)">.</i></span></div>
+  <div class="l-bar"><i id="lbar"></i></div>
+  <div class="l-pct" id="lpct">0%</div>
+</div>
+
+<div id="cursor"></div>
+<div class="bp-grid" aria-hidden="true"></div>
+
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="logo">mirajul<em>builds</em><span class="dot">.</span></a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#about" data-i18n="nav_about">About</a>
+        <a href="#edge" data-i18n="nav_edge">Edge</a>
+        <a href="#services" data-i18n="nav_services">Services</a>
+        <a href="#work" data-i18n="nav_work">Work</a>
+        <a href="#skills" data-i18n="nav_skills">Toolkit</a>
+      </div>
+      <div class="langs-sw" role="group" aria-label="Language">
+        <button data-lang="en" class="on">EN</button>
+        <button data-lang="ar">ع</button>
+        <button data-lang="bn">বাং</button>
+      </div>
+      <a href="#contact" class="btn btn-fill nav-cta" data-i18n="nav_cta">Let's talk</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-glow"></div>
+  <span class="cross" style="top:110px;inset-inline-start:4vw">+</span>
+  <span class="cross" style="bottom:90px;inset-inline-end:5vw">+</span>
+  <div class="wrap hero-in">
+    <div>
+      <div class="spec-row rv" data-rv>
+        <span class="pulse"></span>
+        <span class="spec" data-i18n="hero_spec"><b>RUH 24.7136°N</b> · available for projects</span>
+      </div>
+      <h1>
+        <span class="line"><span data-i18n="h1_l1">I build &amp; grow</span></span>
+        <span class="line"><span data-i18n="h1_l2"><em style="font-style:normal;color:var(--blue)">businesses</em> online<em style="font-style:normal;color:var(--amber)">.</em></span></span>
+      </h1>
+      <p class="sub rv" data-rv data-i18n="hero_sub">Digital marketer &amp; web developer in Riyadh. I taught myself from the shop floor — and I ship <b>search rankings, ad campaigns, and fast websites</b> that turn into real customers.</p>
+      <div class="cta-row rv" data-rv>
+        <a href="#work" class="btn btn-fill"><span data-i18n="hero_cta1">View selected work</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="https://wa.me/8801834133177" class="btn btn-line" data-i18n="hero_cta2">WhatsApp me</a>
+      </div>
+      <div class="hero-meta">
+        <div class="hm rv" data-rv><b><span data-count="5">0</span>+ <span data-i18n="m_yrs">yrs</span></b><span data-i18n="m1">marketing</span></div>
+        <div class="hm rv" data-rv><b><span data-count="10">0</span>+</b><span data-i18n="m2">projects shipped</span></div>
+        <div class="hm rv" data-rv><b><span data-count="1000">0</span>+</b><span data-i18n="m3">pages ranked</span></div>
+      </div>
+    </div>
+    <div class="hero-card rv-r" data-rv>
+      <div class="frame">
+        <div class="corner c1"></div><div class="corner c2"></div><div class="corner c3"></div><div class="corner c4"></div>
+        <div class="ph">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          <small>portrait // drop-in</small>
+        </div>
+      </div>
+      <div class="float-tag ft1">status: <b>shipping</b></div>
+      <div class="float-tag ft2">stack: <b>seo + ads + code</b></div>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true"><span class="spec" data-i18n="scroll">scroll</span><div class="wheel"></div></div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="mq-track" id="mq">
+    <span>SEO <i>//</i> Google Ads <i>//</i> Meta Ads <i>//</i> Web development <i>//</i> Landing pages <i>//</i> E-commerce <i>//</i> Analytics <i>//</i></span>
+    <span>SEO <i>//</i> Google Ads <i>//</i> Meta Ads <i>//</i> Web development <i>//</i> Landing pages <i>//</i> E-commerce <i>//</i> Analytics <i>//</i></span>
+  </div>
+</div>
+
+<section id="about">
+  <span class="cross" style="top:70px;inset-inline-end:6vw">+</span>
+  <div class="wrap">
+    <div class="sec-head rv" data-rv><span class="num">SEC.01</span><h2 data-i18n="about_h">About</h2><span class="spec" data-i18n="about_spec">// the real story</span></div>
+    <div class="sec-line rv" data-rv></div>
+    <div class="about-grid">
+      <div class="rv" data-rv>
+        <p class="big" data-i18n="about_big">My marketing education didn't come from a course — it came from <em>the cash counter of a hardware shop</em> in Riyadh.</p>
+        <p class="body" data-i18n="about_p1">I came from Bangladesh on a worker visa. I run the shop floor from morning to late night — customers, suppliers, deliveries. In the gaps between customers, I taught myself SEO, Google Ads, and code. Then I built the website for the shop I work at, ranked it on Google, and ran the ad campaigns that make its phone ring.</p>
+        <p class="body" data-i18n="about_p2">No desk. No team. No spare time. Just proof. I know where every riyal of a business comes from, because I stand at the counter where it's earned. That's the "builds" in the name — and it's how I treat every project I touch.</p>
+      </div>
+      <div class="about-facts rv-r" data-rv>
+        <div class="fact"><span class="k" data-i18n="f1k">Base</span><span class="v" data-i18n="f1v">Riyadh, Saudi Arabia</span></div>
+        <div class="fact"><span class="k" data-i18n="f2k">Journey</span><span class="v" data-i18n="f2v">Bangladesh → Riyadh</span></div>
+        <div class="fact"><span class="k" data-i18n="f3k">Day job</span><span class="v" data-i18n="f3v">Retail &amp; trade, full-time</span></div>
+        <div class="fact"><span class="k" data-i18n="f4k">Focus</span><span class="v">SEO · Ads · Web dev</span></div>
+        <div class="fact"><span class="k" data-i18n="f5k">Languages</span><span class="v">English · বাংলা · العربية</span></div>
+        <div class="fact"><span class="k" data-i18n="f6k">Status</span><span class="v blue" data-i18n="f6v">Open to projects</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="edge" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head rv" data-rv><span class="num">SEC.02</span><h2 data-i18n="edge_h">The operator's edge</h2><span class="spec" data-i18n="edge_spec">// why my marketing is different</span></div>
+    <div class="sec-line rv" data-rv></div>
+    <div class="edge-grid">
+      <div class="edge rv" data-rv>
+        <span class="e-num">EDGE.01</span>
+        <h3 data-i18n="e1h">Retail &amp; wholesale floor</h3>
+        <p data-i18n="e1p">Years of daily sales, B2B clients, credit ledgers, and inventory — lived at the counter, not read in a spreadsheet.</p>
+      </div>
+      <div class="edge rv" data-rv>
+        <span class="e-num">EDGE.02</span>
+        <h3 data-i18n="e2h">Procurement &amp; pricing</h3>
+        <p data-i18n="e2p">Suppliers, sourcing, and margins. I talk ROI in a businessman's language, because I count it every single day.</p>
+      </div>
+      <div class="edge rv" data-rv>
+        <span class="e-num">EDGE.03</span>
+        <h3 data-i18n="e3h">Trade domain fluency</h3>
+        <p data-i18n="e3p">Plumbing, sanitary, electrical, lighting — I know the products and the people who buy them. I speak contractor.</p>
+      </div>
+    </div>
+    <div class="edge-quote rv" data-rv data-i18n="edge_q">Most marketers have never run a till. <em>I have</em> — that's why my campaigns talk to buyers, not personas.</div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head rv" data-rv><span class="num">SEC.03</span><h2 data-i18n="svc_h">Services</h2><span class="spec" data-i18n="svc_spec">// get found → get clicks → get customers</span></div>
+    <div class="sec-line rv" data-rv></div>
+    <div class="svc-list">
+      <div class="svc rv" data-rv>
+        <span class="idx">/01</span>
+        <div>
+          <h3 data-i18n="s1h">SEO &amp; local search</h3>
+          <div class="tags"><span>Technical SEO</span><span>Local SEO</span><span>Content</span></div>
+        </div>
+        <p data-i18n="s1p">Rank for the searches that bring buyers — from technical fixes and site architecture to content Google actually rewards. Bilingual Arabic + English markets welcome.</p>
+        <div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </div>
+      <div class="svc rv" data-rv>
+        <span class="idx">/02</span>
+        <div>
+          <h3 data-i18n="s2h">Google &amp; Meta ads</h3>
+          <div class="tags"><span>Search</span><span>Performance</span><span>Tracking</span></div>
+        </div>
+        <p data-i18n="s2p">Campaigns built on buyer intent, negative-keyword discipline, and call tracking — so budget goes to customers, not clicks. Gulf market experience built in.</p>
+        <div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </div>
+      <div class="svc rv" data-rv>
+        <span class="idx">/03</span>
+        <div>
+          <h3 data-i18n="s3h">Web design &amp; development</h3>
+          <div class="tags"><span>React</span><span>Landing pages</span><span>Speed</span></div>
+        </div>
+        <p data-i18n="s3p">Fast, clean sites and web apps — mobile-first, SEO baked in from the first commit. Built with modern stacks and an obsession with load time, because speed converts.</p>
+        <div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </div>
+      <div class="svc rv" data-rv>
+        <span class="idx">/04</span>
+        <div>
+          <h3 data-i18n="s4h">E-commerce</h3>
+          <div class="tags"><span>Amazon</span><span>Product research</span><span>Launch</span></div>
+        </div>
+        <p data-i18n="s4p">From product research and sourcing to storefront and launch marketing — the full loop of getting a product online and moving.</p>
+        <div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <span class="cross" style="top:80px;inset-inline-start:5vw">+</span>
+  <div class="wrap">
+    <div class="sec-head rv" data-rv><span class="num">SEC.04</span><h2 data-i18n="wk_h">Selected work</h2><span class="spec" data-i18n="wk_spec">// built, shipped, measured</span></div>
+    <div class="sec-line rv" data-rv></div>
+    <div class="work-grid">
+      <article class="proj wide rv" data-rv>
+        <div class="p-head"><span class="p-tag gold" data-i18n="p1tag">Flagship · full digital build</span><span class="p-num">PRJ.001</span></div>
+        <h3>Riyadh Home Solution</h3>
+        <p class="p-desc" data-i18n="p1desc">The complete digital side of a Riyadh home-services brand — branding, bilingual website, local SEO, and Google Ads. Built with real trade-side knowledge of this market: I know these customers because I serve them across the counter every day.</p>
+        <div class="p-stats">
+          <div class="ps"><b class="blue">AR + EN</b><span data-i18n="p1s1">bilingual build</span></div>
+          <div class="ps"><b class="blue">Local SEO</b><span>+ Google Ads</span></div>
+          <div class="ps"><b class="blue" data-i18n="p1s3b">Call-first</b><span data-i18n="p1s3">conversion design</span></div>
+        </div>
+        <a class="p-link" href="https://riyadhhomesolution.com" target="_blank" rel="noopener">riyadhhomesolution.com
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </a>
+      </article>
+
+      <article class="proj rv" data-rv>
+        <div class="p-head"><span class="p-tag" data-i18n="p2tag">Own product · programmatic SEO</span><span class="p-num">PRJ.002</span></div>
+        <h3>aiagecalc.com</h3>
+        <p class="p-desc" data-i18n="p2desc">A web product with 1,000+ individually optimized pages, generated by a custom prerender pipeline — per-page SEO tags, automated sitemaps, static-speed loads.</p>
+        <div class="p-stats">
+          <div class="ps"><b class="blue"><span data-count="1012">0</span></b><span data-i18n="p2s1">static pages</span></div>
+          <div class="ps"><b class="blue" data-i18n="p2s2b">Custom</b><span data-i18n="p2s2">build pipeline</span></div>
+        </div>
+        <a class="p-link" href="https://aiagecalc.com" target="_blank" rel="noopener">aiagecalc.com
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </a>
+      </article>
+
+      <article class="proj rv" data-rv>
+        <div class="p-head"><span class="p-tag" data-i18n="p3tag">Own product · SEO recovery</span><span class="p-num">PRJ.003</span></div>
+        <h3>dreammeaninglab.com</h3>
+        <p class="p-desc" data-i18n="p3desc">Took a site from a Google penalty (24k+ junk pages) back to health — deleted everything, rebuilt around ~50 hand-written, research-backed pages with a strict quality blueprint.</p>
+        <div class="p-stats">
+          <div class="ps"><b class="amber">24k → 50</b><span data-i18n="p3s1">pages, on purpose</span></div>
+          <div class="ps"><b class="blue" data-i18n="p3s2b">Recovered</b><span data-i18n="p3s2">from penalty</span></div>
+        </div>
+        <a class="p-link" href="https://dreammeaninglab.com" target="_blank" rel="noopener">dreammeaninglab.com
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </a>
+      </article>
+
+      <article class="proj wide rv" data-rv>
+        <div class="p-head"><span class="p-tag" data-i18n="p4tag">E-commerce · cross-border</span><span class="p-num">PRJ.004</span></div>
+        <h3>Zervin Store — Amazon FBA</h3>
+        <p class="p-desc" data-i18n="p4desc">An Amazon store launched on amazon.ae — competitive-gap product research, international entity and payments setup, supplier sourcing, and listing strategy. E-commerce from zero, done by the numbers.</p>
+        <div class="p-stats">
+          <div class="ps"><b class="blue">amazon.ae</b><span data-i18n="p4s1">marketplace</span></div>
+          <div class="ps"><b class="blue" data-i18n="p4s2b">Gap analysis</b><span data-i18n="p4s2">product selection</span></div>
+          <div class="ps"><b class="blue" data-i18n="p4s3b">Full stack</b><span data-i18n="p4s3">research → launch</span></div>
+        </div>
+        <a class="p-link" href="https://www.amazon.ae/s?me=zervin" target="_blank" rel="noopener">amazon.ae · Zervin Store
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head rv" data-rv><span class="num">SEC.05</span><h2 data-i18n="pr_h">How I work</h2><span class="spec" data-i18n="pr_spec">// same loop, every project</span></div>
+    <div class="sec-line rv" data-rv></div>
+    <div class="proc-grid rv" data-rv>
+      <div class="step"><span class="s-num">STEP.01</span><h3 data-i18n="st1h">Audit</h3><p data-i18n="st1p">Numbers first — what's ranking, what's converting, where budget leaks. No guesswork.</p></div>
+      <div class="step"><span class="s-num">STEP.02</span><h3 data-i18n="st2h">Plan</h3><p data-i18n="st2p">A short, concrete plan with targets. You'll know exactly what ships and when.</p></div>
+      <div class="step"><span class="s-num">STEP.03</span><h3 data-i18n="st3h">Build</h3><p data-i18n="st3p">Campaigns, pages, code — shipped fast, measured from day one.</p></div>
+      <div class="step"><span class="s-num">STEP.04</span><h3 data-i18n="st4h">Grow</h3><p data-i18n="st4p">Iterate on what the data says. Double down on winners, kill losers early.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" style="background:var(--bg2);border-top:1px solid var(--line)">
+  <span class="cross" style="bottom:70px;inset-inline-end:7vw">+</span>
+  <div class="wrap">
+    <div class="sec-head rv" data-rv><span class="num">SEC.06</span><h2 data-i18n="sk_h">Toolkit</h2><span class="spec" data-i18n="sk_spec">// weapons of choice</span></div>
+    <div class="sec-line rv" data-rv></div>
+    <div class="skill-cols">
+      <div class="skill-box rv" data-rv>
+        <div class="sb-head" data-i18n="sb1">Marketing</div>
+        <ul>
+          <li><span data-i18n="sk11">SEO — technical &amp; content</span> <span>ADV</span></li>
+          <li>Google Ads <span>ADV</span></li>
+          <li>Meta Ads <span>ADV</span></li>
+          <li><span data-i18n="sk14">Local SEO / Business Profile</span> <span>ADV</span></li>
+          <li><span data-i18n="sk15">Analytics &amp; tracking</span> <span>ADV</span></li>
+        </ul>
+      </div>
+      <div class="skill-box rv" data-rv>
+        <div class="sb-head" data-i18n="sb2">Development</div>
+        <ul>
+          <li>HTML / CSS / JavaScript <span>ADV</span></li>
+          <li>React <span>PRO</span></li>
+          <li>Supabase <span>PRO</span></li>
+          <li><span data-i18n="sk24">Netlify / deployments</span> <span>ADV</span></li>
+          <li><span data-i18n="sk25">Performance / Core Web Vitals</span> <span>ADV</span></li>
+        </ul>
+      </div>
+      <div class="skill-box rv" data-rv>
+        <div class="sb-head" data-i18n="sb3">Commerce</div>
+        <ul>
+          <li>Amazon FBA <span>PRO</span></li>
+          <li><span data-i18n="sk32">Product research</span> <span>ADV</span></li>
+          <li><span data-i18n="sk33">Landing pages / CRO</span> <span>ADV</span></li>
+          <li><span data-i18n="sk34">Copywriting</span> <span>PRO</span></li>
+          <li><span data-i18n="sk35">Bilingual campaigns AR/EN</span> <span>ADV</span></li>
+        </ul>
+      </div>
+      <div class="skill-box rv" data-rv>
+        <div class="sb-head gold" data-i18n="sb4">Business &amp; trade</div>
+        <ul>
+          <li><span data-i18n="sk41">Retail operations</span> <span>ADV</span></li>
+          <li><span data-i18n="sk42">Wholesale &amp; B2B sales</span> <span>ADV</span></li>
+          <li><span data-i18n="sk43">Procurement &amp; sourcing</span> <span>ADV</span></li>
+          <li><span data-i18n="sk44">Pricing &amp; margins</span> <span>ADV</span></li>
+          <li><span data-i18n="sk45">Home-improvement trade</span> <span>PRO</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact" style="border-top:1px solid var(--line)">
+  <div class="wrap contact-in">
+    <div class="spec rv" data-rv style="margin-bottom:24px">SEC.07 // open channel</div>
+    <h2 class="giant">
+      <span class="line"><span data-i18n="c_l1">Let's build</span></span>
+      <span class="line"><span data-i18n="c_l2"><em>something real.</em></span></span>
+    </h2>
+    <p class="lead rv" data-rv data-i18n="c_lead">Have a project in mind — or a site that should be doing better? Tell me about it. I reply fast.</p>
+    <div class="cta-row rv" data-rv style="justify-content:center">
+      <a href="mailto:hello@mirajulbuilds.com" class="btn btn-fill">hello@mirajulbuilds.com</a>
+      <a href="https://wa.me/8801834133177" class="btn btn-line">WhatsApp</a>
+    </div>
+    <div class="langs rv" data-rv>EN · বাংলা · العربية</div>
+    <div class="socials rv" data-rv>
+      <a href="https://www.linkedin.com/in/mirajulbuilds/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://x.com/MirajulBuilds" target="_blank" rel="noopener">X / Twitter</a>
+      <a href="https://www.reddit.com/u/MirajulBuilds" target="_blank" rel="noopener">Reddit</a>
+      <a href="https://github.com/mirajulbuilds" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-in">
+    <span class="spec">© 2026 <b>mirajulbuilds.com</b></span>
+    <span class="spec" data-i18n="foot">designed &amp; built in <b>Riyadh</b> · RUH 24.7136°N 46.6753°E</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script>
+(function(){
+  /* ================= i18n ================= */
+  const I18N = {
+    en:{dir:"ltr",
+      nav_about:"About",nav_edge:"Edge",nav_services:"Services",nav_work:"Work",nav_skills:"Toolkit",nav_cta:"Let's talk",
+      hero_spec:"<b>RUH 24.7136°N</b> · available for projects",
+      h1_l1:"I build &amp; grow",
+      h1_l2:"<em style='font-style:normal;color:var(--blue)'>businesses</em> online<em style='font-style:normal;color:var(--amber)'>.</em>",
+      hero_sub:"Digital marketer &amp; web developer in Riyadh. I taught myself from the shop floor — and I ship <b>search rankings, ad campaigns, and fast websites</b> that turn into real customers.",
+      hero_cta1:"View selected work",hero_cta2:"WhatsApp me",
+      m_yrs:"yrs",m1:"marketing",m2:"projects shipped",m3:"pages ranked",scroll:"scroll",
+      about_h:"About",about_spec:"// the real story",
+      about_big:"My marketing education didn't come from a course — it came from <em>the cash counter of a hardware shop</em> in Riyadh.",
+      about_p1:"I came from Bangladesh on a worker visa. I run the shop floor from morning to late night — customers, suppliers, deliveries. In the gaps between customers, I taught myself SEO, Google Ads, and code. Then I built the website for the shop I work at, ranked it on Google, and ran the ad campaigns that make its phone ring.",
+      about_p2:"No desk. No team. No spare time. Just proof. I know where every riyal of a business comes from, because I stand at the counter where it's earned. That's the \"builds\" in the name — and it's how I treat every project I touch.",
+      f1k:"Base",f1v:"Riyadh, Saudi Arabia",f2k:"Journey",f2v:"Bangladesh → Riyadh",f3k:"Day job",f3v:"Retail &amp; trade, full-time",f4k:"Focus",f5k:"Languages",f6k:"Status",f6v:"Open to projects",
+      edge_h:"The operator's edge",edge_spec:"// why my marketing is different",
+      e1h:"Retail &amp; wholesale floor",e1p:"Years of daily sales, B2B clients, credit ledgers, and inventory — lived at the counter, not read in a spreadsheet.",
+      e2h:"Procurement &amp; pricing",e2p:"Suppliers, sourcing, and margins. I talk ROI in a businessman's language, because I count it every single day.",
+      e3h:"Trade domain fluency",e3p:"Plumbing, sanitary, electrical, lighting — I know the products and the people who buy them. I speak contractor.",
+      edge_q:"Most marketers have never run a till. <em>I have</em> — that's why my campaigns talk to buyers, not personas.",
+      svc_h:"Services",svc_spec:"// get found → get clicks → get customers",
+      s1h:"SEO &amp; local search",s1p:"Rank for the searches that bring buyers — from technical fixes and site architecture to content Google actually rewards. Bilingual Arabic + English markets welcome.",
+      s2h:"Google &amp; Meta ads",s2p:"Campaigns built on buyer intent, negative-keyword discipline, and call tracking — so budget goes to customers, not clicks. Gulf market experience built in.",
+      s3h:"Web design &amp; development",s3p:"Fast, clean sites and web apps — mobile-first, SEO baked in from the first commit. Built with modern stacks and an obsession with load time, because speed converts.",
+      s4h:"E-commerce",s4p:"From product research and sourcing to storefront and launch marketing — the full loop of getting a product online and moving.",
+      wk_h:"Selected work",wk_spec:"// built, shipped, measured",
+      p1tag:"Flagship · full digital build",
+      p1desc:"The complete digital side of a Riyadh home-services brand — branding, bilingual website, local SEO, and Google Ads. Built with real trade-side knowledge of this market: I know these customers because I serve them across the counter every day.",
+      p1s1:"bilingual build",p1s3b:"Call-first",p1s3:"conversion design",
+      p2tag:"Own product · programmatic SEO",p2desc:"A web product with 1,000+ individually optimized pages, generated by a custom prerender pipeline — per-page SEO tags, automated sitemaps, static-speed loads.",
+      p2s1:"static pages",p2s2b:"Custom",p2s2:"build pipeline",
+      p3tag:"Own product · SEO recovery",p3desc:"Took a site from a Google penalty (24k+ junk pages) back to health — deleted everything, rebuilt around ~50 hand-written, research-backed pages with a strict quality blueprint.",
+      p3s1:"pages, on purpose",p3s2b:"Recovered",p3s2:"from penalty",
+      p4tag:"E-commerce · cross-border",p4desc:"An Amazon store launched on amazon.ae — competitive-gap product research, international entity and payments setup, supplier sourcing, and listing strategy. E-commerce from zero, done by the numbers.",
+      p4s1:"marketplace",p4s2b:"Gap analysis",p4s2:"product selection",p4s3b:"Full stack",p4s3:"research → launch",
+      pr_h:"How I work",pr_spec:"// same loop, every project",
+      st1h:"Audit",st1p:"Numbers first — what's ranking, what's converting, where budget leaks. No guesswork.",
+      st2h:"Plan",st2p:"A short, concrete plan with targets. You'll know exactly what ships and when.",
+      st3h:"Build",st3p:"Campaigns, pages, code — shipped fast, measured from day one.",
+      st4h:"Grow",st4p:"Iterate on what the data says. Double down on winners, kill losers early.",
+      sk_h:"Toolkit",sk_spec:"// weapons of choice",
+      sb1:"Marketing",sb2:"Development",sb3:"Commerce",sb4:"Business &amp; trade",
+      sk11:"SEO — technical &amp; content",sk14:"Local SEO / Business Profile",sk15:"Analytics &amp; tracking",
+      sk24:"Netlify / deployments",sk25:"Performance / Core Web Vitals",
+      sk32:"Product research",sk33:"Landing pages / CRO",sk34:"Copywriting",sk35:"Bilingual campaigns AR/EN",
+      sk41:"Retail operations",sk42:"Wholesale &amp; B2B sales",sk43:"Procurement &amp; sourcing",sk44:"Pricing &amp; margins",sk45:"Home-improvement trade",
+      c_l1:"Let's build",c_l2:"<em>something real.</em>",
+      c_lead:"Have a project in mind — or a site that should be doing better? Tell me about it. I reply fast.",
+      foot:"designed &amp; built in <b>Riyadh</b> · RUH 24.7136°N 46.6753°E"
+    },
+    bn:{dir:"ltr",
+      nav_about:"পরিচয়",nav_edge:"আমার শক্তি",nav_services:"সার্ভিস",nav_work:"কাজ",nav_skills:"টুলবক্স",nav_cta:"কথা বলা যাক",
+      hero_spec:"<b>রিয়াদ, সৌদি আরব</b> · নতুন প্রজেক্ট নিচ্ছি",
+      h1_l1:"ব্যবসাকে অনলাইনে",
+      h1_l2:"<em style='font-style:normal;color:var(--blue)'>দাঁড় করাই, বাড়াই</em><em style='font-style:normal;color:var(--amber)'>।</em>",
+      hero_sub:"রিয়াদে থাকি। ডিজিটাল মার্কেটিং আর ওয়েব ডেভেলপমেন্ট — দুটোই শিখেছি দোকানের কাউন্টারে দাঁড়িয়ে, নিজে নিজে। আজ এমন <b>ওয়েবসাইট, সার্চ র‍্যাংকিং আর অ্যাড ক্যাম্পেইন</b> বানাই, যেগুলো শুধু ভিউ আনে না — সত্যিকারের কাস্টমার এনে দেয়।",
+      hero_cta1:"কাজগুলো দেখুন",hero_cta2:"WhatsApp-এ লিখুন",
+      m_yrs:"বছর",m1:"মার্কেটিংয়ে",m2:"প্রজেক্ট শেষ করেছি",m3:"পেজ র‍্যাংক করেছে",scroll:"নিচে দেখুন",
+      about_h:"পরিচয়",about_spec:"// আসল গল্পটা",
+      about_big:"মার্কেটিং আমি কোনো কোর্স থেকে শিখিনি — শিখেছি <em>রিয়াদের এক হার্ডওয়্যার দোকানের ক্যাশ কাউন্টারে</em> দাঁড়িয়ে।",
+      about_p1:"বাংলাদেশ থেকে ওয়ার্কার ভিসায় এসেছিলাম। সকাল থেকে গভীর রাত পর্যন্ত দোকান সামলাই — কাস্টমার, সাপ্লায়ার, ডেলিভারি, সব। যখন দোকানে একটু ভিড় কম, সেই ফাঁকে ফাঁকে নিজে নিজে শিখেছি SEO, Google Ads, কোডিং। তারপর যে দোকানে কাজ করি, সেটারই ওয়েবসাইট নিজ হাতে বানিয়েছি, Google-এ র‍্যাংক করিয়েছি — আজ সেই সাইট দেখেই কাস্টমার ফোন করে।",
+      about_p2:"আলাদা ডেস্ক ছিল না, টিম ছিল না, বাড়তি সময়ও না। ছিল শুধু জেদ। ব্যবসার এক-একটা রিয়াল কোথা থেকে আসে, আমি হাড়ে হাড়ে জানি — কারণ যেখানে টাকাটা আয় হয়, আমি সেই কাউন্টারেই দাঁড়াই। নামের \"builds\" শব্দটা এখান থেকেই এসেছে। আর প্রতিটা প্রজেক্টে আমি এই জেদটাই সঙ্গে নিয়ে যাই।",
+      f1k:"ঠিকানা",f1v:"রিয়াদ, সৌদি আরব",f2k:"পথচলা",f2v:"বাংলাদেশ → রিয়াদ",f3k:"দিনের কাজ",f3v:"দোকান সামলানো, ফুল-টাইম",f4k:"যা করি",f5k:"ভাষা",f6k:"অবস্থা",f6v:"নতুন কাজ নিচ্ছি",
+      edge_h:"যেখানে আমি আলাদা",edge_spec:"// অন্য মার্কেটারদের সাথে পার্থক্যটা এখানেই",
+      e1h:"দোকান চালানোর অভিজ্ঞতা",e1p:"রোজকার বেচাকেনা, পাইকারি ক্লায়েন্ট, বাকির খাতা, স্টকের হিসাব — এসব আমি বই পড়ে শিখিনি। বছরের পর বছর কাউন্টারে দাঁড়িয়ে করে করে শিখেছি।",
+      e2h:"কেনা-বেচার হিসাব",e2p:"সাপ্লায়ার ধরা, দাম ঠিক করা, লাভের মার্জিন বের করা — এগুলো আমার রোজকার কাজ। তাই ROI-এর কথা বলি ব্যবসায়ীর ভাষায়, বইয়ের ভাষায় না।",
+      e3h:"এই লাইনেরই মানুষ",e3p:"প্লাম্বিং, স্যানিটারি, ইলেকট্রিক, লাইট — প্রোডাক্টগুলোও চিনি, যারা কেনে তাদেরও চিনি। মিস্ত্রি আর কন্ট্রাক্টরের ভাষা আমার মুখস্থ।",
+      edge_q:"বেশিরভাগ মার্কেটার জীবনে কোনোদিন ক্যাশবাক্স সামলায়নি। <em>আমি রোজ সামলাই</em> — তাই আমার ক্যাম্পেইন কাগুজে 'টার্গেট অডিয়েন্স' না, আসল ক্রেতার সাথে কথা বলে।",
+      svc_h:"সার্ভিস",svc_spec:"// আগে খুঁজে পাওয়া → তারপর ক্লিক → তারপর কাস্টমার",
+      s1h:"SEO ও লোকাল সার্চ",s1p:"যে সার্চ থেকে ক্রেতা আসে, সেখানে আপনার ব্যবসাকে র‍্যাংক করাই — টেকনিক্যাল দিক ঠিকঠাক করা থেকে শুরু করে এমন কনটেন্ট, যেটা Google সত্যিই পছন্দ করে। আরবি-ইংরেজি দুই ভাষার মার্কেটেই কাজ চলে।",
+      s2h:"Google ও Meta অ্যাড",s2p:"ক্রেতা আসলে কী খুঁজছে, সেটা বুঝে ক্যাম্পেইন সাজাই। অকাজের কিওয়ার্ড ছেঁটে ফেলি, প্রতিটা কল ট্র্যাক করি — যাতে টাকাটা ক্লিকে না গিয়ে কাস্টমারে যায়।",
+      s3h:"ওয়েবসাইট ডিজাইন ও ডেভেলপমেন্ট",s3p:"ঝকঝকে, দ্রুত লোড হওয়া সাইট — মোবাইলে আগে, SEO একদম শুরু থেকেই ভেতরে। স্পিড নিয়ে আমার একটু বাড়াবাড়ি রকমের জেদ আছে, কারণ ধীর সাইটে কাস্টমার দাঁড়ায় না।",
+      s4h:"ই-কমার্স",s4p:"কোন প্রোডাক্ট চলবে সেই রিসার্চ থেকে শুরু করে সোর্সিং, স্টোর সাজানো, লঞ্চের মার্কেটিং — একটা প্রোডাক্টকে অনলাইনে তুলে বিক্রি পর্যন্ত পুরো পথটা।",
+      wk_h:"বাছাই করা কাজ",wk_spec:"// বানিয়েছি, চালিয়েছি, ফলাফল মেপেছি",
+      p1tag:"প্রধান কাজ · পুরো ডিজিটাল দিক",
+      p1desc:"রিয়াদের একটা হোম-সার্ভিস ব্র্যান্ডের ডিজিটাল দিকটা পুরোটাই আমার হাতে গড়া — ব্র্যান্ডিং থেকে দুই ভাষার ওয়েবসাইট, লোকাল SEO, Google Ads। এই মার্কেটের কাস্টমারদের আমি চিনি — রোজ কাউন্টারের ওপারে এদের সাথেই তো আমার কথা হয়।",
+      p1s1:"দুই ভাষার সাইট",p1s3b:"কল-ফার্স্ট",p1s3:"ফোন বাজানোই লক্ষ্য",
+      p2tag:"নিজের প্রোডাক্ট · প্রোগ্রাম্যাটিক SEO",p2desc:"এক হাজারের বেশি পেজ, প্রতিটা আলাদা করে অপটিমাইজ করা — নিজের বানানো প্রিরেন্ডার পাইপলাইন দিয়ে। প্রতি পেজে আলাদা SEO ট্যাগ, অটো সাইটম্যাপ, আর লোড হয় চোখের পলকে।",
+      p2s1:"স্ট্যাটিক পেজ",p2s2b:"নিজের বানানো",p2s2:"বিল্ড পাইপলাইন",
+      p3tag:"নিজের প্রোডাক্ট · পেনাল্টি থেকে ফেরা",p3desc:"Google-এর পেনাল্টি খাওয়া একটা সাইট — ২৪ হাজারের বেশি অকাজের পেজ ছিল। সব মুছে দিয়ে মাত্র ৫০টা হাতে-লেখা, রিসার্চ করা পেজ দিয়ে নতুন করে সাজিয়েছি। সাইট এখন সুস্থ, র‍্যাংকিংয়ে ফিরেছে।",
+      p3s1:"পেজ, জেনেবুঝে",p3s2b:"ফিরে এসেছে",p3s2:"পেনাল্টি কাটিয়ে",
+      p4tag:"ই-কমার্স · দেশের বাইরে",p4desc:"amazon.ae-তে একটা Amazon স্টোর দাঁড় করিয়েছি — মার্কেটে কোথায় ফাঁক আছে সেই হিসেবে প্রোডাক্ট বাছা, বিদেশি কোম্পানি আর পেমেন্ট সেটআপ, সাপ্লায়ার খোঁজা, লিস্টিং সাজানো। শূন্য থেকে, হিসাব কষে কষে।",
+      p4s1:"মার্কেটপ্লেস",p4s2b:"ফাঁক খুঁজে",p4s2:"প্রোডাক্ট বাছাই",p4s3b:"শুরু থেকে শেষ",p4s3:"রিসার্চ → লঞ্চ",
+      pr_h:"যেভাবে কাজ করি",pr_spec:"// প্রতিটা প্রজেক্টে একই নিয়ম",
+      st1h:"আগে হিসাব",st1p:"শুরুতেই নাম্বার দেখি — কী র‍্যাংক করছে, কী বিক্রি আনছে, টাকা কোথায় ফুটো হয়ে বেরোচ্ছে। আন্দাজে কিছু করি না।",
+      st2h:"তারপর প্ল্যান",st2p:"ছোট, স্পষ্ট প্ল্যান — কী কবে হাতে পাবেন, আগেই বলে দিই। ধোঁয়াশা রাখি না।",
+      st3h:"তারপর কাজ",st3p:"ক্যাম্পেইন, পেজ, কোড — দেরি না করে নামিয়ে দিই, আর প্রথম দিন থেকেই মাপতে থাকি।",
+      st4h:"তারপর বাড়ানো",st4p:"ডেটা যা বলে, তা-ই করি। যেটা কাজ করছে সেটায় জোর, যেটা করছে না সেটা তাড়াতাড়ি বাদ।",
+      sk_h:"টুলবক্স",sk_spec:"// যা দিয়ে কাজ চালাই",
+      sb1:"মার্কেটিং",sb2:"ডেভেলপমেন্ট",sb3:"কমার্স",sb4:"ব্যবসা ও ট্রেড",
+      sk11:"SEO — টেকনিক্যাল ও কনটেন্ট",sk14:"লোকাল SEO / বিজনেস প্রোফাইল",sk15:"অ্যানালিটিক্স ও ট্র্যাকিং",
+      sk24:"Netlify / ডিপ্লয়",sk25:"স্পিড / Core Web Vitals",
+      sk32:"প্রোডাক্ট রিসার্চ",sk33:"ল্যান্ডিং পেজ / CRO",sk34:"লেখালেখি (কপি)",sk35:"আরবি-ইংরেজি ক্যাম্পেইন",
+      sk41:"দোকান চালানো",sk42:"পাইকারি ও B2B বিক্রি",sk43:"মাল কেনা ও সোর্সিং",sk44:"দাম ও মার্জিনের হিসাব",sk45:"হার্ডওয়্যার-স্যানিটারি লাইন",
+      c_l1:"চলুন, এবার",c_l2:"<em>সত্যিকারের কিছু বানাই।</em>",
+      c_lead:"মাথায় কোনো প্রজেক্ট ঘুরছে? বা এমন একটা সাইট আছে, যেটার আরও ভালো করার কথা ছিল? লিখে পাঠান — দ্রুতই উত্তর দেব।",
+      foot:"ভাবনা থেকে নির্মাণ — সবটাই <b>রিয়াদে</b> · RUH 24.7136°N 46.6753°E"
+    },
+    ar:{dir:"rtl",
+      nav_about:"نبذة",nav_edge:"ميزتي",nav_services:"الخدمات",nav_work:"الأعمال",nav_skills:"العُدّة",nav_cta:"تواصل معي",
+      hero_spec:"<b>الرياض، السعودية</b> · متاح للمشاريع",
+      h1_l1:"أبني وأنمّي",
+      h1_l2:"<em style='font-style:normal;color:var(--blue)'>الأعمال</em> عبر الإنترنت<em style='font-style:normal;color:var(--amber)'>.</em>",
+      hero_sub:"مسوّق رقمي ومطوّر مواقع في الرياض. تعلّمت بنفسي من أرض المتجر — وأقدّم <b>تصدّر نتائج البحث، وحملات إعلانية، ومواقع سريعة</b> تتحول إلى عملاء حقيقيين.",
+      hero_cta1:"شاهد أعمالي",hero_cta2:"راسلني واتساب",
+      m_yrs:"سنوات",m1:"تسويق",m2:"مشروع منجز",m3:"صفحة متصدّرة",scroll:"مرّر",
+      about_h:"نبذة",about_spec:"// القصة الحقيقية",
+      about_big:"لم أتعلم التسويق من دورة تدريبية — بل من <em>طاولة الكاشير في متجر أدوات</em> بالرياض.",
+      about_p1:"جئت من بنغلاديش بتأشيرة عمل. أدير صالة المتجر من الصباح حتى وقت متأخر من الليل — عملاء وموردون وتوصيل. وفي الفترات بين العملاء علّمت نفسي تحسين محركات البحث وإعلانات Google والبرمجة. ثم بنيت موقع المتجر الذي أعمل فيه، وتصدّرت به نتائج Google، وأدرت الحملات الإعلانية التي تجعل هاتفه يرن.",
+      about_p2:"بلا مكتب، بلا فريق، بلا وقت فائض — فقط نتائج ملموسة. أعرف من أين يأتي كل ريال في التجارة، لأنني أقف عند الطاولة التي يُكسب عندها. من هنا جاءت كلمة builds في الاسم — وهكذا أتعامل مع كل مشروع.",
+      f1k:"المقر",f1v:"الرياض، السعودية",f2k:"الرحلة",f2v:"بنغلاديش ← الرياض",f3k:"العمل اليومي",f3v:"تجزئة وتجارة، دوام كامل",f4k:"التركيز",f5k:"اللغات",f6k:"الحالة",f6v:"متاح للمشاريع",
+      edge_h:"خبرة الميدان",edge_spec:"// لماذا تسويقي مختلف",
+      e1h:"أرض التجزئة والجملة",e1p:"سنوات من المبيعات اليومية وعملاء الجملة ودفاتر الآجل والمخزون — عشتها خلف الطاولة، لا في جداول البيانات.",
+      e2h:"الشراء والتسعير",e2p:"موردون ومصادر وهوامش ربح. أتحدث عن العائد بلغة التاجر، لأنني أحسبه بنفسي كل يوم.",
+      e3h:"إلمام بقطاع الأدوات",e3p:"سباكة وأدوات صحية وكهرباء وإنارة — أعرف المنتجات وأعرف من يشتريها. أفهم لغة المقاول.",
+      edge_q:"معظم المسوّقين لم يقفوا خلف كاشير قط. <em>أنا وقفت</em> — لهذا تخاطب حملاتي مشترين حقيقيين، لا شخصيات افتراضية.",
+      svc_h:"الخدمات",svc_spec:"// الظهور ← النقرات ← العملاء",
+      s1h:"تحسين محركات البحث المحلي",s1p:"التصدّر في عمليات البحث التي تجلب المشترين — من الإصلاحات التقنية وهيكلة الموقع إلى محتوى يكافئه Google فعلاً. أرحّب بالأسواق ثنائية اللغة عربي + إنجليزي.",
+      s2h:"إعلانات Google وMeta",s2p:"حملات مبنية على نيّة المشتري وانضباط الكلمات السلبية وتتبّع المكالمات — لتذهب الميزانية إلى العملاء لا النقرات. مع خبرة مدمجة في سوق الخليج.",
+      s3h:"تصميم وتطوير المواقع",s3p:"مواقع وتطبيقات ويب سريعة ونظيفة — الجوال أولاً، وتحسين محركات البحث مدمج من أول سطر. تقنيات حديثة وهوس بسرعة التحميل، لأن السرعة تبيع.",
+      s4h:"التجارة الإلكترونية",s4p:"من بحث المنتجات والتوريد إلى المتجر وتسويق الإطلاق — الدورة الكاملة لوضع منتج على الإنترنت وتحريك مبيعاته.",
+      wk_h:"أعمال مختارة",wk_spec:"// بُنيت وسُلّمت وقيست",
+      p1tag:"العمل الأبرز · بناء رقمي كامل",
+      p1desc:"الجانب الرقمي الكامل لعلامة خدمات منزلية في الرياض — هوية وموقع ثنائي اللغة وتحسين بحث محلي وإعلانات Google. بُني بمعرفة ميدانية حقيقية بهذا السوق: أعرف هؤلاء العملاء لأنني أخدمهم خلف الطاولة كل يوم.",
+      p1s1:"بناء ثنائي اللغة",p1s3b:"الاتصال أولاً",p1s3:"تصميم للتحويل",
+      p2tag:"منتج خاص · SEO برمجي",p2desc:"منتج ويب يضم أكثر من 1,000 صفحة محسّنة فردياً، مولّدة عبر خط معالجة مسبقة مخصص — وسوم SEO لكل صفحة، وخرائط موقع آلية، وتحميل بسرعة المواقع الثابتة.",
+      p2s1:"صفحة ثابتة",p2s2b:"مخصص",p2s2:"خط بناء",
+      p3tag:"منتج خاص · تعافي SEO",p3desc:"أعدت موقعاً من عقوبة Google (أكثر من 24 ألف صفحة رديئة) إلى العافية — حذفت كل شيء وأعدت البناء على نحو 50 صفحة مكتوبة يدوياً ومدعومة بالبحث وفق معيار جودة صارم.",
+      p3s1:"صفحة، عن قصد",p3s2b:"تعافى",p3s2:"من العقوبة",
+      p4tag:"تجارة إلكترونية · عابرة للحدود",p4desc:"متجر Amazon أُطلق على amazon.ae — بحث منتجات قائم على فجوات المنافسة، وتأسيس كيان دولي ومدفوعات، وتوريد من الموردين، واستراتيجية إدراج. تجارة إلكترونية من الصفر، بالأرقام.",
+      p4s1:"السوق",p4s2b:"تحليل الفجوات",p4s2:"اختيار المنتج",p4s3b:"دورة كاملة",p4s3:"بحث ← إطلاق",
+      pr_h:"طريقة عملي",pr_spec:"// نفس الدورة في كل مشروع",
+      st1h:"تدقيق",st1p:"الأرقام أولاً — ما الذي يتصدّر، وما الذي يحوّل، وأين تتسرب الميزانية. بلا تخمين.",
+      st2h:"خطة",st2p:"خطة قصيرة وملموسة بأهداف واضحة. ستعرف بالضبط ما سيُسلَّم ومتى.",
+      st3h:"بناء",st3p:"حملات وصفحات وأكواد — تُسلَّم بسرعة وتُقاس من اليوم الأول.",
+      st4h:"نمو",st4p:"أكرر بناءً على ما تقوله البيانات: أضاعف ما ينجح وأوقف ما يخسر مبكراً.",
+      sk_h:"العدة",sk_spec:"// أدوات العمل",
+      sb1:"التسويق",sb2:"التطوير",sb3:"التجارة",sb4:"الأعمال والتجارة الميدانية",
+      sk11:"SEO — تقني ومحتوى",sk14:"SEO محلي / الملف التجاري",sk15:"تحليلات وتتبّع",
+      sk24:"Netlify / النشر",sk25:"الأداء / Core Web Vitals",
+      sk32:"بحث المنتجات",sk33:"صفحات هبوط / CRO",sk34:"كتابة إعلانية",sk35:"حملات ثنائية اللغة AR/EN",
+      sk41:"عمليات التجزئة",sk42:"الجملة ومبيعات B2B",sk43:"الشراء والتوريد",sk44:"التسعير والهوامش",sk45:"قطاع تحسين المنازل",
+      c_l1:"لنبنِ معاً",c_l2:"<em>شيئاً حقيقياً.</em>",
+      c_lead:"لديك مشروع في بالك — أو موقع يجب أن يحقق أكثر؟ حدّثني عنه. أرد بسرعة.",
+      foot:"صُمم وبُني في <b>الرياض</b> · RUH 24.7136°N 46.6753°E"
+    }
+  };
+
+  function setLang(code){
+    const d = I18N[code]; if(!d) return;
+    document.documentElement.lang = code;
+    document.documentElement.dir = d.dir;
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      const k = el.getAttribute('data-i18n');
+      if(d[k] !== undefined) el.innerHTML = d[k];
+    });
+    document.querySelectorAll('.langs-sw button').forEach(b=>b.classList.toggle('on', b.dataset.lang===code));
+    try{ localStorage.setItem('mb_lang', code); }catch(e){}
+    /* dir/content change alters page height — refresh scroll engine so it never freezes */
+    if(window.__mbLenis){ try{ window.__mbLenis.resize(); }catch(e){} }
+    if(window.ScrollTrigger){ try{ ScrollTrigger.refresh(); }catch(e){} }
+  }
+  document.querySelectorAll('.langs-sw button').forEach(b=>{
+    b.addEventListener('click', ()=>setLang(b.dataset.lang));
+  });
+  let saved = 'en';
+  try{ saved = localStorage.getItem('mb_lang') || 'en'; }catch(e){}
+  if(saved !== 'en') setLang(saved);
+
+  /* ================= animation ================= */
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isMobile = matchMedia('(max-width: 920px)').matches;
+  gsap.registerPlugin(ScrollTrigger);
+
+  let lenis = null;
+  if(!reduce){
+    lenis = new Lenis({ duration:1.15, smoothWheel:true });
+    window.__mbLenis = lenis;
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(t => lenis.raf(t*1000));
+    gsap.ticker.lagSmoothing(0);
+    /* safety: if Lenis ever fails to init, native scroll still works */
+    window.addEventListener('DOMContentLoaded',()=>{ if(!window.__mbLenis) document.documentElement.style.overflowY='auto'; });
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const id = a.getAttribute('href');
+      if(id.length>1 && document.querySelector(id)){
+        e.preventDefault();
+        if(lenis){ lenis.scrollTo(id,{offset:-70}); }
+        else{ document.querySelector(id).scrollIntoView({behavior:'smooth'}); }
+      }
+    });
+  });
+
+  const loader = document.getElementById('loader');
+  const pct = document.getElementById('lpct');
+  const bar = document.getElementById('lbar');
+  const nameSpan = loader.querySelector('.l-name span');
+
+  function countUp(els){
+    els.forEach(el=>{
+      const target = +el.dataset.count;
+      gsap.fromTo(el,{textContent:0},{textContent:target,duration:1.6,ease:'power2.out',snap:{textContent:1},
+        onUpdate(){ el.textContent = Math.round(+el.textContent).toLocaleString('en'); }});
+    });
+  }
+
+  function heroIn(){
+    const tl = gsap.timeline();
+    tl.to('h1 .line > span',{y:0,duration:1,ease:'power4.out',stagger:.12})
+      .to('.hero [data-rv]',{opacity:1,y:0,x:0,duration:.8,ease:'power3.out',stagger:.09},'-=.55');
+    countUp(document.querySelectorAll('.hero [data-count]'));
+  }
+
+  if(reduce){
+    loader.remove();
+    document.querySelectorAll('.rv,.rv-r,h1 .line > span').forEach(el=>{el.style.opacity=1;el.style.transform='none';});
+    document.querySelectorAll('[data-count]').forEach(el=>el.textContent=(+el.dataset.count).toLocaleString('en'));
+  } else {
+    const tl = gsap.timeline();
+    tl.to(nameSpan,{y:0,duration:.7,ease:'power3.out'})
+      .to({v:0},{v:100,duration:1.2,ease:'power2.inOut',
+        onUpdate(){ const v=Math.round(this.targets()[0].v); pct.textContent=v+'%'; bar.style.transform=`scaleX(${v/100})`; }},'-=.2')
+      .to(loader,{yPercent:-100,duration:.7,ease:'power4.inOut',delay:.1,
+        onComplete(){ loader.remove(); }})
+      .add(heroIn,'-=.35');
+  }
+
+  if(!reduce){
+    /* reveals — tuned stronger for mobile visibility */
+    const startPos = isMobile ? 'top 94%' : 'top 86%';
+    const dist = isMobile ? 44 : 34;
+    document.querySelectorAll('section [data-rv]').forEach(el=>{
+      gsap.fromTo(el,
+        {opacity:0, y: el.classList.contains('rv-r') ? 0 : dist, x: el.classList.contains('rv-r') ? (document.documentElement.dir==='rtl'?-dist:dist) : 0},
+        {opacity:1,y:0,x:0,duration:isMobile? .75 : .9,ease:'power3.out',
+         scrollTrigger:{trigger:el,start:startPos,once:true}});
+    });
+    document.querySelectorAll('#work [data-count]').forEach(el=>{
+      ScrollTrigger.create({trigger:el,start:'top 92%',once:true,onEnter:()=>countUp([el])});
+    });
+    gsap.utils.toArray('.contact .line > span').forEach((el,i)=>{
+      gsap.fromTo(el,{y:'115%'},{y:0,duration:1,ease:'power4.out',delay:i*.1,
+        scrollTrigger:{trigger:'.contact',start:'top 75%',once:true}});
+    });
+    /* parallax — works on touch scroll too via ScrollTrigger */
+    gsap.to('.hero-glow',{y:120,scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:1.2}});
+    gsap.to('.hero-card',{y:isMobile?-26:-46,scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:1.4}});
+    /* float tags gentle bob — visible on mobile too */
+    gsap.to('.ft1',{y:-8,duration:2.6,ease:'sine.inOut',yoyo:true,repeat:-1});
+    gsap.to('.ft2',{y:8,duration:3.1,ease:'sine.inOut',yoyo:true,repeat:-1});
+    /* marquee */
+    gsap.to('#mq',{xPercent:document.documentElement.dir==='rtl'?50:-50,duration:26,ease:'none',repeat:-1});
+  }
+
+  /* nav hide */
+  let lastY = 0;
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll',()=>{
+    const y = window.scrollY;
+    nav.classList.toggle('hide', y>lastY && y>320);
+    lastY = y;
+  },{passive:true});
+
+  /* project spotlight */
+  document.querySelectorAll('.proj').forEach(card=>{
+    card.addEventListener('pointermove',e=>{
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx',(e.clientX-r.left)+'px');
+      card.style.setProperty('--my',(e.clientY-r.top)+'px');
+    });
+  });
+
+  /* custom cursor (desktop only) */
+  const cur = document.getElementById('cursor');
+  if(matchMedia('(hover:hover)').matches && !reduce){
+    let cx=0,cy=0,tx=0,ty=0;
+    window.addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY;cur.classList.add('on');},{passive:true});
+    gsap.ticker.add(()=>{cx+=(tx-cx)*.18;cy+=(ty-cy)*.18;cur.style.left=cx+'px';cur.style.top=cy+'px';});
+    document.querySelectorAll('a,button').forEach(el=>{
+      el.addEventListener('pointerenter',()=>cur.classList.add('grow'));
+      el.addEventListener('pointerleave',()=>cur.classList.remove('grow'));
+    });
+    /* magnetic buttons */
+    document.querySelectorAll('.btn').forEach(btn=>{
+      btn.addEventListener('pointermove',e=>{
+        const r=btn.getBoundingClientRect();
+        gsap.to(btn,{x:(e.clientX-r.left-r.width/2)*.22,y:(e.clientY-r.top-r.height/2)*.22,duration:.35});
+      });
+      btn.addEventListener('pointerleave',()=>gsap.to(btn,{x:0,y:0,duration:.45,ease:'elastic.out(1,.5)'}));
+    });
+  }
+})();
+</script>
+</body>
+</html>
