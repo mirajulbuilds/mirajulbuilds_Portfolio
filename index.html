@@ -943,7 +943,9 @@ h1_l2:"<em style='font-style:normal;color:var(--blue)'>الأعمال</em> عب�
         const r=btn.getBoundingClientRect();
         gsap.to(btn,{x:(e.clientX-r.left-r.width/2)*.22,y:(e.clientY-r.top-r.height/2)*.22,duration:.35});
       });
-      btn.addEventListener('pointerleave',()=>gsap.to(btn,{x:0,y:0,duration:.45,ease:'elastic.out(1,.5)'}));
+btn.addEventListener('pointerleave',()=>gsap.to(btn,{x:0,y:0,duration:.45,ease:'elastic.out(1,.5)'}));
+    });
+  }
   /* touch ripple (mobile) */
   if(matchMedia('(hover:none)').matches && !reduce){
     document.addEventListener('touchstart',e=>{
@@ -955,8 +957,7 @@ h1_l2:"<em style='font-style:normal;color:var(--blue)'>الأعمال</em> عب�
       document.body.appendChild(r);
       r.addEventListener('animationend',()=>r.remove());
     },{passive:true});
-  }
-    });
+  }    });
   }
   const cf = document.getElementById('contactForm');
 if(cf){
