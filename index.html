@@ -294,10 +294,11 @@
     .nav-links{display:none}
     .scroll-cue{display:none}
   }
-  @media(max-width:560px){
+ @media(max-width:560px){
     .proc-grid{grid-template-columns:1fr}
     .step{border-inline-end:none}
-    .langs-sw button{padding:8px 10px}
+    :root{--nav-h:60px}
+    .langs-sw button{padding:6px 8px;font-size:11px}
     .nav-cta{display:none}
   }
   @media(prefers-reduced-motion:reduce){
