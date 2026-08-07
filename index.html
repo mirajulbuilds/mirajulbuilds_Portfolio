@@ -90,6 +90,8 @@
   .logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;letter-spacing:-.02em;white-space:nowrap}
   .logo em{font-style:normal;color:var(--blue)}
   .logo .dot{color:var(--amber)}
+ @keyframes dotBlink{0%,100%{opacity:1}50%{opacity:.15}}
+  .logo .dot,.blink-dot{animation:dotBlink 1.8s ease-in-out infinite}
   .nav-right{display:flex;align-items:center;gap:22px}
   .nav-links{display:flex;align-items:center;gap:28px}
   .nav-links a{font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);position:relative;transition:color .25s}
@@ -360,8 +362,7 @@
       </div>
       <h1>
         <span class="line"><span data-i18n="h1_l1">I build search rankings,</span></span>
-        <span class="line"><span data-i18n="h1_l2"><em style="font-style:normal;color:var(--blue)">ad ROI</em>, and fast websites<em style="font-style:normal;color:var(--amber)">.</em></span></span>      </h1>
-      <p class="sub rv" data-rv data-i18n="hero_sub">Digital marketer &amp; web developer in Riyadh. I taught myself from the shop floor — and I ship <b>search rankings, ad campaigns, and fast websites</b> that turn into real customers.</p>
+<span class="line"><span data-i18n="h1_l2"><em style="font-style:normal;color:var(--blue)">ad ROI</em>, and fast websites<em class="blink-dot" style="font-style:normal;color:var(--amber)">.</em></span></span>      </h1>      <p class="sub rv" data-rv data-i18n="hero_sub">Digital marketer &amp; web developer in Riyadh. I taught myself from the shop floor — and I ship <b>search rankings, ad campaigns, and fast websites</b> that turn into real customers.</p>
       <div class="cta-row rv" data-rv>
         <a href="#work" class="btn btn-fill"><span data-i18n="hero_cta1">View selected work</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -660,8 +661,7 @@
       nav_about:"About",nav_edge:"Edge",nav_services:"Services",nav_work:"Work",nav_skills:"Toolkit",nav_cta:"Let's talk",
       hero_spec:"<b>RUH 24.7136°N</b> · available for projects",
       h1_l1:"I build search rankings,",
-      h1_l2:"<em style='font-style:normal;color:var(--blue)'>ad ROI</em>, and fast websites<em style='font-style:normal;color:var(--amber)'>.</em>",
-      hero_sub:"Digital marketer &amp; web developer in Riyadh. I taught myself from the shop floor — and I ship <b>search rankings, ad campaigns, and fast websites</b> that turn into real customers.",
+h1_l2:"<em style='font-style:normal;color:var(--blue)'>ad ROI</em>, and fast websites<em class='blink-dot' style='font-style:normal;color:var(--amber)'>.</em>",      hero_sub:"Digital marketer &amp; web developer in Riyadh. I taught myself from the shop floor — and I ship <b>search rankings, ad campaigns, and fast websites</b> that turn into real customers.",
       hero_cta1:"View selected work",hero_cta2:"WhatsApp me",
       m_yrs:"yrs",m1:"marketing",m2:"projects shipped",m3:"pages ranked",scroll:"scroll",
       about_h:"About",about_spec:"// the real story",
@@ -708,8 +708,7 @@
       nav_about:"পরিচয়",nav_edge:"আমার শক্তি",nav_services:"সার্ভিস",nav_work:"কাজ",nav_skills:"টুলবক্স",nav_cta:"কথা বলা যাক",
       hero_spec:"<b>রিয়াদ, সৌদি আরব</b> · নতুন প্রজেক্ট নিচ্ছি",
       h1_l1:"ব্যবসাকে অনলাইনে",
-      h1_l2:"<em style='font-style:normal;color:var(--blue)'>দাঁড় করাই, বাড়াই</em><em style='font-style:normal;color:var(--amber)'>।</em>",
-      hero_sub:"রিয়াদে থাকি। ডিজিটাল মার্কেটিং আর ওয়েব ডেভেলপমেন্ট — দুটোই শিখেছি দোকানের কাউন্টারে দাঁড়িয়ে, নিজে নিজে। আজ এমন <b>ওয়েবসাইট, সার্চ র‍্যাংকিং আর অ্যাড ক্যাম্পেইন</b> বানাই, যেগুলো শুধু ভিউ আনে না — সত্যিকারের কাস্টমার এনে দেয়।",
+h1_l2:"<em style='font-style:normal;color:var(--blue)'>দাঁড় করাই, বাড়াই</em><em class='blink-dot' style='font-style:normal;color:var(--amber)'>।</em>",      hero_sub:"রিয়াদে থাকি। ডিজিটাল মার্কেটিং আর ওয়েব ডেভেলপমেন্ট — দুটোই শিখেছি দোকানের কাউন্টারে দাঁড়িয়ে, নিজে নিজে। আজ এমন <b>ওয়েবসাইট, সার্চ র‍্যাংকিং আর অ্যাড ক্যাম্পেইন</b> বানাই, যেগুলো শুধু ভিউ আনে না — সত্যিকারের কাস্টমার এনে দেয়।",
       hero_cta1:"কাজগুলো দেখুন",hero_cta2:"WhatsApp-এ লিখুন",
       m_yrs:"বছর",m1:"মার্কেটিংয়ে",m2:"প্রজেক্ট শেষ করেছি",m3:"পেজ র‍্যাংক করেছে",scroll:"নিচে দেখুন",
       about_h:"পরিচয়",about_spec:"// আসল গল্পটা",
@@ -756,8 +755,7 @@
       nav_about:"نبذة",nav_edge:"ميزتي",nav_services:"الخدمات",nav_work:"الأعمال",nav_skills:"العُدّة",nav_cta:"تواصل معي",
       hero_spec:"<b>الرياض، السعودية</b> · متاح للمشاريع",
       h1_l1:"أبني وأنمّي",
-      h1_l2:"<em style='font-style:normal;color:var(--blue)'>الأعمال</em> عبر الإنترنت<em style='font-style:normal;color:var(--amber)'>.</em>",
-      hero_sub:"مسوّق رقمي ومطوّر مواقع في الرياض. تعلّمت بنفسي من أرض المتجر — وأقدّم <b>تصدّر نتائج البحث، وحملات إعلانية، ومواقع سريعة</b> تتحول إلى عملاء حقيقيين.",
+h1_l2:"<em style='font-style:normal;color:var(--blue)'>الأعمال</em> عبر الإنترنت<em class='blink-dot' style='font-style:normal;color:var(--amber)'>.</em>",      hero_sub:"مسوّق رقمي ومطوّر مواقع في الرياض. تعلّمت بنفسي من أرض المتجر — وأقدّم <b>تصدّر نتائج البحث، وحملات إعلانية، ومواقع سريعة</b> تتحول إلى عملاء حقيقيين.",
       hero_cta1:"شاهد أعمالي",hero_cta2:"راسلني واتساب",
       m_yrs:"سنوات",m1:"تسويق",m2:"مشروع منجز",m3:"صفحة متصدّرة",scroll:"مرّر",
       about_h:"نبذة",about_spec:"// القصة الحقيقية",
