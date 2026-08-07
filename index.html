@@ -305,6 +305,14 @@
     .rv,.rv-r,h1 .line>span,#loader .l-name span{opacity:1!important;transform:none!important}
   }
   :focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
+.contact-form{max-width:480px;margin:0 auto 32px;display:flex;flex-direction:column;gap:14px;text-align:start}
+.contact-form input,.contact-form textarea{width:100%;background:var(--surface);border:1px solid var(--line2);border-radius:8px;padding:13px 16px;color:var(--text);font-family:var(--body);font-size:14.5px;transition:border-color .25s}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:var(--faint)}
+.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--blue)}
+.contact-form textarea{min-height:120px;resize:vertical}
+.contact-form button[type=submit]{align-self:flex-start}
+.form-success{display:none;font-family:var(--mono);font-size:13px;color:var(--blue);text-align:center;padding:14px;border:1px solid var(--line2);border-radius:8px;background:var(--blue-dim);margin-top:4px}
+.form-success.show{display:block}
 </style>
 </head>
 <body>
@@ -612,8 +620,17 @@
       <span class="line"><span data-i18n="c_l2"><em>something real.</em></span></span>
     </h2>
     <p class="lead rv" data-rv data-i18n="c_lead">Have a project in mind — or a site that should be doing better? Tell me about it. I reply fast.</p>
-    <div class="cta-row rv" data-rv style="justify-content:center">
-      <a href="mailto:hello@mirajulbuilds.com" class="btn btn-fill">hello@mirajulbuilds.com</a>
+    <form class="contact-form rv" data-rv id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="e4c538be-f9f6-4f37-83d6-776cd868136c">
+      <input type="hidden" name="subject" value="New project inquiry — mirajulbuilds.com">
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="email" name="email" placeholder="Your email" required>
+      <textarea name="message" placeholder="Tell me about your project..." required></textarea>
+      <button type="submit" class="btn btn-fill">Send message</button>
+      <div class="form-success" id="formSuccess">Thanks — I'll reply within a day. You can also reach me on WhatsApp below.</div>
+    </form>
+    <div class="cta-row rv" data-rv style="justify-content:center;margin-top:10px">
+      <a href="mailto:hello@mirajulbuilds.com" class="btn btn-line">hello@mirajulbuilds.com</a>
       <a href="https://wa.me/8801834133177" class="btn btn-line">WhatsApp</a>
     </div>
     <div class="langs rv" data-rv>EN · বাংলা · العربية</div>
@@ -931,6 +948,25 @@
       btn.addEventListener('pointerleave',()=>gsap.to(btn,{x:0,y:0,duration:.45,ease:'elastic.out(1,.5)'}));
     });
   }
+  const cf = document.getElementById('contactForm');
+if(cf){
+  cf.addEventListener('submit', async function(e){
+    e.preventDefault();
+    const btn = cf.querySelector('button[type=submit]');
+    const orig = btn.textContent;
+    btn.textContent = 'Sending...'; btn.disabled = true;
+    try{
+      const res = await fetch(cf.action,{method:'POST',body:new FormData(cf),headers:{Accept:'application/json'}});
+      const data = await res.json();
+      if(data.success){
+        cf.reset();
+        document.getElementById('formSuccess').classList.add('show');
+      }
+      btn.textContent = orig;
+    }catch(err){ btn.textContent = 'Try again'; }
+    btn.disabled = false;
+  });
+}
 })();
 </script>
 </body>
