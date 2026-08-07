@@ -67,6 +67,9 @@
 #cursor{position:fixed;top:0;left:0;width:440px;height:440px;border-radius:50%;pointer-events:none;z-index:150;transform:translate(-50%,-50%);transition:width .4s ease,height .4s ease,opacity .35s ease,background .4s ease;opacity:0;mix-blend-mode:screen;background:radial-gradient(circle,rgba(77,163,255,.16) 0%,rgba(77,163,255,.06) 40%,rgba(77,163,255,0) 72%)}
   #cursor.on{opacity:1}
   #cursor.grow{width:560px;height:560px;background:radial-gradient(circle,rgba(77,163,255,.20) 0%,rgba(242,180,65,.10) 42%,rgba(77,163,255,0) 74%)}
+ @media(hover:none){#cursor{display:none}}
+  .touch-ripple{position:fixed;top:0;left:0;width:16px;height:16px;border-radius:50%;pointer-events:none;z-index:150;transform:translate(-50%,-50%) scale(1);opacity:1;background:radial-gradient(circle,rgba(77,163,255,.4) 0%,rgba(242,180,65,.22) 45%,rgba(77,163,255,0) 75%);animation:rippleOut .7s ease-out forwards;mix-blend-mode:screen}
+  @keyframes rippleOut{to{transform:translate(-50%,-50%) scale(16);opacity:0}}
   /* blueprint chrome */
   .bp-grid{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:44px 44px}
   .cross{position:absolute;font-family:var(--mono);color:var(--blue);opacity:.35;font-size:15px;user-select:none}
@@ -941,6 +944,18 @@ h1_l2:"<em style='font-style:normal;color:var(--blue)'>الأعمال</em> عب�
         gsap.to(btn,{x:(e.clientX-r.left-r.width/2)*.22,y:(e.clientY-r.top-r.height/2)*.22,duration:.35});
       });
       btn.addEventListener('pointerleave',()=>gsap.to(btn,{x:0,y:0,duration:.45,ease:'elastic.out(1,.5)'}));
+  /* touch ripple (mobile) */
+  if(matchMedia('(hover:none)').matches && !reduce){
+    document.addEventListener('touchstart',e=>{
+      const t = e.touches[0]; if(!t) return;
+      const r = document.createElement('div');
+      r.className = 'touch-ripple';
+      r.style.left = t.clientX+'px';
+      r.style.top = t.clientY+'px';
+      document.body.appendChild(r);
+      r.addEventListener('animationend',()=>r.remove());
+    },{passive:true});
+  }
     });
   }
   const cf = document.getElementById('contactForm');
