@@ -927,7 +927,7 @@ h1_l2:"<em style='font-style:normal;color:var(--blue)'>الأعمال</em> عب�
     });
   });
 
-  /* custom cursor (desktop only) */
+/* custom cursor (desktop only) */
   const cur = document.getElementById('cursor');
   if(matchMedia('(hover:hover)').matches && !reduce){
     let cx=0,cy=0,tx=0,ty=0;
@@ -943,7 +943,7 @@ h1_l2:"<em style='font-style:normal;color:var(--blue)'>الأعمال</em> عب�
         const r=btn.getBoundingClientRect();
         gsap.to(btn,{x:(e.clientX-r.left-r.width/2)*.22,y:(e.clientY-r.top-r.height/2)*.22,duration:.35});
       });
-btn.addEventListener('pointerleave',()=>gsap.to(btn,{x:0,y:0,duration:.45,ease:'elastic.out(1,.5)'}));
+      btn.addEventListener('pointerleave',()=>gsap.to(btn,{x:0,y:0,duration:.45,ease:'elastic.out(1,.5)'}));
     });
   }
   /* touch ripple (mobile) */
@@ -957,7 +957,6 @@ btn.addEventListener('pointerleave',()=>gsap.to(btn,{x:0,y:0,duration:.45,ease:'
       document.body.appendChild(r);
       r.addEventListener('animationend',()=>r.remove());
     },{passive:true});
-  }    });
   }
   const cf = document.getElementById('contactForm');
 if(cf){
