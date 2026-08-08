@@ -67,9 +67,13 @@
 #cursor{position:fixed;top:0;left:0;width:440px;height:440px;border-radius:50%;pointer-events:none;z-index:150;transform:translate(-50%,-50%);transition:width .4s ease,height .4s ease,opacity .35s ease,background .4s ease;opacity:0;mix-blend-mode:screen;background:radial-gradient(circle,rgba(77,163,255,.16) 0%,rgba(77,163,255,.06) 40%,rgba(77,163,255,0) 72%)}
   #cursor.on{opacity:1}
   #cursor.grow{width:560px;height:560px;background:radial-gradient(circle,rgba(77,163,255,.20) 0%,rgba(242,180,65,.10) 42%,rgba(77,163,255,0) 74%)}
- @media(hover:none){#cursor{display:none}}
-  .touch-ripple{position:fixed;top:0;left:0;width:16px;height:16px;border-radius:50%;pointer-events:none;z-index:150;transform:translate(-50%,-50%) scale(1);opacity:1;background:radial-gradient(circle,rgba(77,163,255,.4) 0%,rgba(242,180,65,.22) 45%,rgba(77,163,255,0) 75%);animation:rippleOut .7s ease-out forwards;mix-blend-mode:screen}
-  @keyframes rippleOut{to{transform:translate(-50%,-50%) scale(16);opacity:0}}
+@media(hover:none){
+    #cursor{display:none}
+    a:active{color:var(--blue)}
+    .btn:active{transform:scale(.96);border-color:var(--amber);box-shadow:0 0 0 1.5px var(--blue)}
+  }
+  .grid-node{position:fixed;top:0;left:0;width:8px;height:8px;border-radius:50%;background:var(--blue);pointer-events:none;z-index:150;transform:translate(-50%,-50%);animation:gridPulse .8s ease-out forwards}
+  @keyframes gridPulse{0%{opacity:1;box-shadow:0 0 0 0 rgba(77,163,255,.5)}100%{opacity:0;box-shadow:0 0 0 22px rgba(77,163,255,0)}}
   /* blueprint chrome */
   .bp-grid{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:44px 44px}
   .cross{position:absolute;font-family:var(--mono);color:var(--blue);opacity:.35;font-size:15px;user-select:none}
@@ -874,12 +878,12 @@ h1_l2:"<em style='font-style:normal;color:var(--blue)'>الأعمال</em> عب�
     document.querySelectorAll('[data-count]').forEach(el=>el.textContent=(+el.dataset.count).toLocaleString('en'));
   } else {
     const tl = gsap.timeline();
-    tl.to(nameSpan,{y:0,duration:.7,ease:'power3.out'})
-      .to({v:0},{v:100,duration:1.2,ease:'power2.inOut',
-        onUpdate(){ const v=Math.round(this.targets()[0].v); pct.textContent=v+'%'; bar.style.transform=`scaleX(${v/100})`; }},'-=.2')
-      .to(loader,{yPercent:-100,duration:.7,ease:'power4.inOut',delay:.1,
+tl.to(nameSpan,{y:0,duration:.4,ease:'power3.out'})
+      .to({v:0},{v:100,duration:.6,ease:'power2.inOut',
+        onUpdate(){ const v=Math.round(this.targets()[0].v); pct.textContent=v+'%'; bar.style.transform=`scaleX(${v/100})`; }},'-=.1')
+      .to(loader,{yPercent:-100,duration:.45,ease:'power4.inOut',delay:.05,
         onComplete(){ loader.remove(); }})
-      .add(heroIn,'-=.35');
+      .add(heroIn,'-=.2');
   }
 
   if(!reduce){
@@ -946,16 +950,18 @@ h1_l2:"<em style='font-style:normal;color:var(--blue)'>الأعمال</em> عب�
       btn.addEventListener('pointerleave',()=>gsap.to(btn,{x:0,y:0,duration:.45,ease:'elastic.out(1,.5)'}));
     });
   }
-  /* touch ripple (mobile) */
+/* touch feedback (mobile) */
   if(matchMedia('(hover:none)').matches && !reduce){
     document.addEventListener('touchstart',e=>{
       const t = e.touches[0]; if(!t) return;
-      const r = document.createElement('div');
-      r.className = 'touch-ripple';
-      r.style.left = t.clientX+'px';
-      r.style.top = t.clientY+'px';
-      document.body.appendChild(r);
-      r.addEventListener('animationend',()=>r.remove());
+      const gx = Math.round(t.clientX/44)*44;
+      const gy = Math.round(t.clientY/44)*44;
+      const n = document.createElement('div');
+      n.className = 'grid-node';
+      n.style.left = gx+'px';
+      n.style.top = gy+'px';
+      document.body.appendChild(n);
+      n.addEventListener('animationend',()=>n.remove());
     },{passive:true});
   }
   const cf = document.getElementById('contactForm');
